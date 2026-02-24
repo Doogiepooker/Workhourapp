@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Site Equipment Hours Tracker</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app">
+    <h1>Site Equipment Hours Tracker</h1>
+    <p class="subtitle">Track unit numbers, equipment hours, and capture photos from site.</p>
+
+    <section class="card">
+      <h2>Add Equipment Entry</h2>
+      <form id="entry-form">
+        <label>
+          Unit Number
+          <input id="unit-number" name="unitNumber" type="text" placeholder="EX-103" required />
+        </label>
+
+        <label>
+          Asset Name
+          <input id="asset-name" name="assetName" type="text" placeholder="Excavator" required />
+        </label>
+
+        <label>
+          Meter Hours
+          <input id="meter-hours" name="meterHours" type="number" min="0" step="0.1" placeholder="1234.5" required />
+        </label>
+
+        <label>
+          Date
+          <input id="entry-date" name="entryDate" type="date" required />
+        </label>
+
+        <label>
+          Notes
+          <textarea id="notes" name="notes" rows="3" placeholder="Maintenance details, location, etc."></textarea>
+        </label>
+
+        <label>
+          Site Photo
+          <input id="photo" name="photo" type="file" accept="image/*" capture="environment" />
+        </label>
+
+        <button type="submit">Save Entry</button>
+      </form>
+    </section>
+
+    <section class="card">
+      <h2>Saved Entries</h2>
+      <div class="actions">
+        <button id="download-csv" type="button">Download Data Sheet (CSV)</button>
+        <button id="download-json" type="button">Download Full Data (JSON)</button>
+        <button id="clear-all" class="danger" type="button">Clear All</button>
+      </div>
+      <p id="empty-message">No entries saved yet.</p>
+      <div id="entries"></div>
+    </section>
+  </main>
+
+  <template id="entry-template">
+    <article class="entry">
+      <header>
+        <h3 class="entry-title"></h3>
+        <p class="entry-date"></p>
+      </header>
+      <dl>
+        <div><dt>Unit Number</dt><dd class="entry-unit"></dd></div>
+        <div><dt>Meter Hours</dt><dd class="entry-hours"></dd></div>
+        <div><dt>Notes</dt><dd class="entry-notes"></dd></div>
+      </dl>
+      <img class="entry-photo" alt="Equipment site photo" />
+      <button class="remove" type="button">Delete</button>
+    </article>
+  </template>
+
+  <script src="app.js"></script>
+</body>
+</html>
