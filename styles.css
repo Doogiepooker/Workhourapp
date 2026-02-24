@@ -1,0 +1,121 @@
+:root {
+  color-scheme: light dark;
+  --bg: #f4f6f8;
+  --surface: #ffffff;
+  --text: #1b1f23;
+  --muted: #586069;
+  --brand: #0969da;
+  --danger: #d1242f;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0f1115;
+    --surface: #1a1f29;
+    --text: #f2f5f7;
+    --muted: #b4bcc5;
+    --brand: #3b82f6;
+    --danger: #ef4444;
+  }
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.app {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.subtitle {
+  color: var(--muted);
+}
+
+.card {
+  background: var(--surface);
+  border-radius: 12px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+form {
+  display: grid;
+  gap: 0.75rem;
+}
+
+label {
+  display: grid;
+  gap: 0.25rem;
+  font-weight: 600;
+}
+
+input, textarea, button {
+  font: inherit;
+  padding: 0.6rem;
+  border-radius: 8px;
+  border: 1px solid #c3c9d0;
+}
+
+button {
+  cursor: pointer;
+  background: var(--brand);
+  color: white;
+  border: none;
+}
+
+button.danger,
+button.remove {
+  background: var(--danger);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+#entries {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.entry {
+  border: 1px solid #d0d7de;
+  border-radius: 10px;
+  padding: 0.75rem;
+}
+
+.entry header {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.entry dl {
+  margin: 0.5rem 0;
+}
+
+.entry dl > div {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.35rem;
+}
+
+.entry dt { font-weight: 700; }
+.entry dd { margin: 0; }
+
+.entry-photo {
+  width: 100%;
+  max-height: 220px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+}
